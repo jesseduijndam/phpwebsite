@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="action.php" >
+    <form action="action.php" method="get" >
         <p>Firstname:</p><br />
-        <input type="text"  name="firstname" value="Fname" method="get" /><br />
+        <input type="text"  name="Fname" /><br />
         <p>Lastname:</p><br />
-        <input type="text"  name="lastname" value="Lname" method="post" /><br />
+        <input type="text"  name="Lname" /><br />
         <input type="submit" value="Submit">
     </form>
 </body>
