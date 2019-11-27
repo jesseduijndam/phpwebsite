@@ -105,7 +105,7 @@ function showCalendar(month, year) {
                 
                 hello++
                 old = e.toElement;
-                
+                document.cookie = "datum = " + old.id
                 
             }
 
