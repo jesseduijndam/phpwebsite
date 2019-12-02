@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="action.php" method="get" >
+<life id="time" data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
     <h3 id="monthAndYear"></h3>
     <table>
         <thead>
@@ -35,6 +35,7 @@
         <button id="next" onclick="next()">Next</button>
     
     <br/>
+    <form>
         <label for="month">Jump To: </label>
         <select name="month" id="month" onchange="jump()">
             <option value=0>Jan</option>
@@ -67,6 +68,11 @@
             <option value=2029>2029</option>
             <option value=2030>2030</option>
         </select>
+    </form>
+    <table>
+        <tbody id = "time-body">
+    </table>
+    <form action="action.php" method="get" >
     <p>Firstname:</p>
     <input type="text"  name="Fname" /><br />
     <p>Lastname:</p>
@@ -77,6 +83,7 @@
     <input type="checkbox" name="dienst" value="wassen"> Wassen<br />
     <input type="submit" value="Submit">
 </form>
-    <script src="scripts.js"></script>
+    <script src="js/datumscript.js"></script>
+    <script src="js/clockscript.js"></script>
 </body>
 </html>

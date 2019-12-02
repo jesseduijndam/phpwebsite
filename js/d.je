@@ -1,0 +1,29 @@
+// creating tablerow
+    let row3 = document.createElement("tr");
+
+    // creating cell
+    cell = document.createElement("td");
+    // putting the arrow in
+    cellarrow = document.createElement('arrowup')
+    cell.appendChild(cellarrow)
+    cell.onclick = upH; 
+    // saving the cell
+    row3.appendChild(cell);
+
+    // creating cell
+    cell = document.createElement("td");
+    // putting the arrow in
+        // empty cell 
+    // saving the cell
+    row3.appendChild(cell);
+
+    // creating cell
+    cell = document.createElement("td");
+    // putting the arrow in
+    cellarrow = document.createElement('arrowup')
+    cell.appendChild(cellarrow)
+    cell.onclick = upM; 
+    // saving the cell
+    row3.appendChild(cell);
+    // saving the row3 
+    tbl.appendChild(row3);

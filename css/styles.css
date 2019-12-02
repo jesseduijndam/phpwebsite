@@ -15,4 +15,26 @@ table,tr,td,th{
     border-collapse: collapse;
    border: 3px solid blue;
 }
+tr, td, th{
+    text-align: center;
+}
+arrowup, arrowdown {
+    
+   
+    width:25.65px; height: 18.4px;
+    filter: hue-rotate(30deg);
+    display: block;
+    margin:0px; padding:0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+arrowdown{
+    background-image: url(../img/arrowdown.png);
+}
+
+arrowup {
+    background-image: url(../img/arrowup.png);
+}
 /* <link rel="stylesheet" type="text/css" href="css/styles.css"> */
