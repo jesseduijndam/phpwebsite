@@ -13,10 +13,12 @@ showCalendar(currentMonth, currentYear);
 
 
 
+
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
+  
 }
 
 function previous() {
@@ -24,14 +26,15 @@ function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
+    
 }
 
 function jump() {
     currentYear = parseInt(selectYear.value);
     currentMonth = parseInt(selectMonth.value);
     showCalendar(currentMonth, currentYear);
+   
 }
-
 function showCalendar(month, year) {
 
     let firstDay = (new Date(year, month)).getDay();
@@ -40,7 +43,6 @@ function showCalendar(month, year) {
 
     // clearing all previous cells
     tbl.innerHTML = "";
-
     // filing data about month and in the page via DOM.
     monthAndYear.innerHTML = months[month] + " " + year;
     selectYear.value = year;
@@ -69,11 +71,14 @@ function showCalendar(month, year) {
 
             else {
                 cell = document.createElement("td");
+                cell.id = `${date}/${month+1}/${year}` ;
                 cellText = document.createTextNode(date);
-                if (date < today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                if ((date < today.getDate() && year === today.getFullYear() && month === today.getMonth()) || j == 0 || j == 6) {
                     cell.classList.add("notavaileble");
                 }
-                
+                if (j== 0 || j == 6) {
+                    
+                }else{
                 if (year === today.getFullYear()) 
                 {
                     if (month === today.getMonth() && date >= today.getDate()) {
@@ -84,9 +89,10 @@ function showCalendar(month, year) {
                 }else if (year >= today.getFullYear()) {
                     cell.onclick = naam;
                 }
+                }
                 cell.appendChild(cellText);
 
-                cell.id = `${date}/${month+1}/${year}` ;
+                
                 cell.classList.add("notanymore")
                 row.appendChild(cell);
                 date++;

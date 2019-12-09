@@ -1,42 +1,50 @@
-const time = document.querySelector('#time')
+const time = document.querySelector('#time');
 hour = time.dataset.hours;
-minutes = time.dataset.minutes
- 
-const timehour = [00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
-const timeminute = [00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59];
+minutes = time.dataset.minutes;
 
-showTime(hour, minutes)
+const timedouble0 = ["00","01","02","03","04","05","06","07","08","09"];
 
+showTime(hour, minutes);
+document.cookie = "hour = " + check(hour);
+document.cookie = "minute = "+ check(minutes);
 function upH() {
-    if (hour >= 23) {
-        hour = -1
+    h = ++hour
+    if (h >= 24) {
+        h = 0
+        hour = 0
     }
-    h = timehour[hour++]
+    document.cookie = "hour = " + check(hour);
     showTime(h, minutes)
     
 }
 
 function downH() {
-    if (hour <= 0) {
-        hour = 24
+    h = --hour
+    if (h <= -1) {
+        h = 23
+        hour = 23
     }
-    h = timehour[hour--]
+    document.cookie = "hour = " + check(hour);
     showTime(h, minutes)
 }
 
 function upM() {
-    if (minutes >= 60) {
-        minutes = -1
+    m = ++minutes
+    if (m >= 60) {
+        minutes = 0
+        m = 0
     }
-    m = timeminute[++minutes]
+    document.cookie = "minute = "+ check(minutes);
     showTime(hour, m)
 }
 
 function downM() {
-    if (minutes <= 0) {
-        minutes = 60
+    m = --minutes
+    if (m <= -1) {
+        minutes = 59
+        m = 59
     }
-    m = timeminute[--minutes]
+    document.cookie = "minute = "+ check(minutes);
     showTime(hour, m)
 }
 
@@ -86,8 +94,10 @@ function showTime(hours, minutes) {
         // creating cell
         cell = document.createElement("td");
         // putting in the number of hours
-        celltext = document.createTextNode(timehour[hours]);
+        celltext = document.createTextNode(check(hours));
         cell.appendChild(celltext);
+        //make it non selectable
+        cell.classList.add("no-copy");
         // saving the cell
         row2.appendChild(cell);
 
@@ -96,14 +106,18 @@ function showTime(hours, minutes) {
         // putting the arrow in
             celltext = document.createTextNode(":");
             cell.appendChild(celltext);
+        //make it non selectable
+        cell.classList.add("no-copy");
         // saving the cell
         row2.appendChild(cell);
 
         // creating cell
         cell = document.createElement("td");
         // putting the arrow in
-            celltext = document.createTextNode(minutes);
+            celltext = document.createTextNode(check(minutes));
             cell.appendChild(celltext);
+        //make it non selectable
+        cell.classList.add("no-copy");
         // saving the cell
         row2.appendChild(cell);
         // saving the row2 
@@ -139,7 +153,12 @@ function showTime(hours, minutes) {
         row3.appendChild(cell);
         // saving the row3 
         tbl.appendChild(row3);
-
-
-
+    }
+function check(t) {
+    if (t<10) {
+        return timedouble0[t]
+    }else{
+        return t
+    }
 }
+

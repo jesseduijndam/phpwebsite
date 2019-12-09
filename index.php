@@ -10,7 +10,7 @@
 <body>
 <life id="time" data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
     <h3 id="monthAndYear"></h3>
-    <table>
+    <table id="col-add">
         <thead>
         <tr>
             <th>Sun</th>
