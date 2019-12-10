@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<life id="time" data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
+<life id="time" data-year= <?= date("Y") ?> data-month= <?= date("n") ?> data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
     <h3 id="monthAndYear"></h3>
     <table id="col-add">
         <thead>

@@ -23,7 +23,11 @@ nextMonth.onclick = next;
 //getting options for the onchange smaler and automaticly updated
 showOptions();
 
-
+// geting some control values out of php
+const time = document.querySelector('#time');
+let controlYear = time.dataset.year;
+let controlMonth = time.dataset.month;
+console.log(time.dataset.month)
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
@@ -34,14 +38,28 @@ function next() {
 function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
+    if (currentMonth + 1 >= controlMonth || currentYear > controlYear) {
+        showCalendar(currentMonth, currentYear);
+    }else{
+        currentMonth++
+    }
+    console.log(currentYear);
+    console.log(currentMonth);
+    console.log(controlMonth);
+    
     
 }
 
 function jump() {
+    let currentold = currentMonth;
     currentYear = parseInt(selectYear.value);
     currentMonth = parseInt(selectMonth.value);
-    showCalendar(currentMonth, currentYear);
+    if (currentMonth + 1 >= controlMonth || currentYear > controlYear) {
+        showCalendar(currentMonth, currentYear);
+    }else{
+        currentMonth = currentold
+    }
+    
    
 }
 function showCalendar(month, year) {

@@ -1,6 +1,7 @@
-const time = document.querySelector('#time');
-hour = time.dataset.hours;
-minutes = time.dataset.minutes;
+// next line is only needed when you dont use time in datumscript.js or dont use datumscript at all
+// const time = document.querySelector('#time');
+let hour = time.dataset.hours;
+let minutes = time.dataset.minutes;
 
 const timedouble0 = ["00","01","02","03","04","05","06","07","08","09"];
 
