@@ -12,44 +12,37 @@
     <h3 id="monthAndYear"></h3>
     <table id="col-add">
         <thead>
-        <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
+        <tr class="no-copy">
+            <th>Zo</th>
+            <th>Ma</th>
+            <th>Di</th>
+            <th>Wo</th>
+            <th>Do</th>
+            <th>Vr</th>
+            <th>Za</th>
         </tr>
         </thead>
 
         <tbody id="calendar-body">
-
+            <!-- the calender comes here -->
         </tbody>
     </table>
-
-    
-
         <button id="previous">Previous</button>
-
-        <button id="next">Next</button>
-    
+        <button id="next">Next</button>   
     <br/>
     <form>
-        <label for="month">Jump To: </label>
-        <select name="month" id="month">
-            
-        </select>
-
-
+        <label for="month">Verander Naar: </label>
+            <select name="month" id="month">
+                <!-- the months come here -->
+            </select>
         <label for="year"></label>
-        <select name="year" id="year" >
-            
-        </select>
+            <select name="year" id="year" >
+                <!-- the years are here  -->
+            </select>
     </form>
     <table>
         <tbody id = "time-body">
-            
+            <!-- the time picker belongs here -->
         </tbody>
     </table>
     <form action="action.php" method="get" >

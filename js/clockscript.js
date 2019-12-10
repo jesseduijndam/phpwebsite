@@ -155,6 +155,9 @@ function showTime(hours, minutes) {
         tbl.appendChild(row3);
     }
 function check(t) {
+    // need to make it the first time a nuber so it can be put inside a array as the variable so thats wy i do ++ --
+    t++
+    t--
     if (t<10) {
         return timedouble0[t]
     }else{

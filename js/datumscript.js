@@ -100,7 +100,7 @@ function showCalendar(month, year) {
                 }
                 }
                 cell.appendChild(cellText);
-
+                cell.classList.add("no-copy")
                 
                 cell.classList.add("notanymore")
                 row.appendChild(cell);
