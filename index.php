@@ -30,47 +30,27 @@
 
     
 
-        <button id="previous" onclick="previous()">Previous</button>
+        <button id="previous">Previous</button>
 
-        <button id="next" onclick="next()">Next</button>
+        <button id="next">Next</button>
     
     <br/>
     <form>
         <label for="month">Jump To: </label>
-        <select name="month" id="month" onchange="jump()">
-            <option value=0>Jan</option>
-            <option value=1>Feb</option>
-            <option value=2>Mar</option>
-            <option value=3>Apr</option>
-            <option value=4>May</option>
-            <option value=5>Jun</option>
-            <option value=6>Jul</option>
-            <option value=7>Aug</option>
-            <option value=8>Sep</option>
-            <option value=9>Oct</option>
-            <option value=10>Nov</option>
-            <option value=11>Dec</option>
+        <select name="month" id="month">
+            
         </select>
 
 
         <label for="year"></label>
-        <select name="year" id="year" onchange="jump()">
-            <option value=2019>2019</option>
-            <option value=2020>2020</option>
-            <option value=2021>2021</option>
-            <option value=2022>2022</option>
-            <option value=2023>2023</option>
-            <option value=2024>2024</option>
-            <option value=2025>2025</option>
-            <option value=2026>2026</option>
-            <option value=2027>2027</option>
-            <option value=2028>2028</option>
-            <option value=2029>2029</option>
-            <option value=2030>2030</option>
+        <select name="year" id="year" >
+            
         </select>
     </form>
     <table>
         <tbody id = "time-body">
+            
+        </tbody>
     </table>
     <form action="action.php" method="get" >
     <p>Firstname:</p>
