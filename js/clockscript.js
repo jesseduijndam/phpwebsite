@@ -4,49 +4,73 @@ let hour = time.dataset.hours;
 let minutes = time.dataset.minutes;
 
 const timedouble0 = ["00","01","02","03","04","05","06","07","08","09"];
-
+// setting the begin and end time
+if (hour <= 9) {
+    hour = 9
+}
+if (hour >= 20) {
+    hour = 20
+    minutes = 0
+}
 showTime(hour, minutes);
 document.cookie = "hour = " + check(hour);
 document.cookie = "minute = "+ check(minutes);
 function upH() {
-    h = ++hour
-    if (h >= 24) {
-        h = 0
-        hour = 0
+    ++hour
+    //end time
+    if (hour >= 20) {
+        hour = 20;
+        minutes = 0;
     }
+    //going back if at the end not needed becouse i use the above
+        /*if (hour >= 24) {
+            hour = 0
+        }*/
     document.cookie = "hour = " + check(hour);
-    showTime(h, minutes)
+    showTime(hour, minutes)
     
 }
 
 function downH() {
-    h = --hour
-    if (h <= -1) {
-        h = 23
-        hour = 23
+    --hour
+    //start time
+    if (hour <= 9) {
+        hour = 9
     }
+    //going back if at the end not needed becouse i use the above
+        /*if (hour <= -1) {
+            hour = 23
+        }*/
     document.cookie = "hour = " + check(hour);
-    showTime(h, minutes)
+    showTime(hour, minutes)
 }
 
 function upM() {
-    m = ++minutes
-    if (m >= 60) {
+    ++minutes
+    //setting the minutes when hour is 20 to 0
+    if (hour == 20) {
+        minutes = 0;
+    }
+    //back to 0
+    if (minutes >= 60) {
         minutes = 0
-        m = 0
     }
     document.cookie = "minute = "+ check(minutes);
-    showTime(hour, m)
+    showTime(hour, minutes)
 }
 
 function downM() {
-    m = --minutes
-    if (m <= -1) {
-        minutes = 59
-        m = 59
+    --minutes
+    //setting the minutes when hour is 20 to 0
+    if (hour == 20) {
+        minutes = 0;
+    }
+    // back to 59 when minutes is on -1
+    if (minutes <= -1) {
+        minutes = 59;
     }
     document.cookie = "minute = "+ check(minutes);
-    showTime(hour, m)
+    showTime(hour, minutes)
 }
 
 function showTime(hours, minutes) {
