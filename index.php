@@ -50,10 +50,10 @@
     <input type="text"  name="Fname" /><br />
     <p>Lastname:</p>
     <input type="text"  name="Lname" /><br /><br />
-    <input type="checkbox" name="dienst" value="wassen"> Wassen<br />
-    <input type="checkbox" name="dienst" value="knippen"> Knippen<br />
-    <input type="checkbox" name="dienst" value="stijlen"> stijlen<br />
-    <input type="checkbox" name="dienst" value="wassen"> Wassen<br />
+    <input type="checkbox" name="wassen" value="wassen"> Wassen<br />
+    <input type="checkbox" name="knippen" value="knippen"> Knippen<br />
+    <input type="checkbox" name="stijlen" value="stijlen"> stijlen<br />
+    <input type="checkbox" name="kleuren" value="kleuren"> kleuren<br />
     <input type="submit" value="Submit">
 </form>
     <script src="js/datumscript.js"></script>
