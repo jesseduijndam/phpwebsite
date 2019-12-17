@@ -2,7 +2,8 @@
 // const time = document.querySelector('#time');
 let hour = time.dataset.hours;
 let minutes = time.dataset.minutes;
-
+let nowH = time.dataset.hours;
+let nowM= time.dataset.minutes;
 const timedouble0 = ["00","01","02","03","04","05","06","07","08","09"];
 // setting the begin and end time
 if (hour <= 9) {
@@ -34,7 +35,9 @@ function upH() {
 function downH() {
     --hour
     //start time
-    if (hour <= 9) {
+    if (hour <= nowH && time.dataset.date==old.id) {
+        hour = nowH
+    }else if (hour <= 9) {
         hour = 9
     }
     //going back if at the end not needed becouse i use the above
@@ -52,7 +55,9 @@ function upM() {
         minutes = 0;
     }
     //back to 0
-    if (minutes >= 60) {
+    if (minutes >= 60 && time.dataset.date==old.id && hour <= nowH) {
+        minutes = nowM
+    }else if (minutes >= 60) {
         minutes = 0
     }
     document.cookie = "minute = "+ check(minutes);
@@ -64,6 +69,10 @@ function downM() {
     //setting the minutes when hour is 20 to 0
     if (hour == 20) {
         minutes = 0;
+    }
+
+    if (hour <= nowH && minutes<=nowM && time.dataset.date==old.id){
+        minutes = nowM
     }
     // back to 59 when minutes is on -1
     if (minutes <= -1) {

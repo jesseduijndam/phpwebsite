@@ -27,7 +27,6 @@ showOptions();
 const time = document.querySelector('#time');
 let controlYear = time.dataset.year;
 let controlMonth = time.dataset.month;
-console.log(time.dataset.month)
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
@@ -140,6 +139,8 @@ function showCalendar(month, year) {
                 hello++
                 old = e.toElement;
                 document.cookie = "datum = " + old.id
+                
+                
                 
             }
 
