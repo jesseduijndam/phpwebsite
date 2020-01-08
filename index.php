@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<life id="time" data-year= <?= date("Y") ?> data-month= <?= date("n") ?> data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
+<life id="time" data-date= <?=date("j/n/Y") ?> data-year= <?= date("Y") ?> data-month= <?= date("n") ?> data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
     <h3 id="monthAndYear"></h3>
     <table id="col-add">
         <thead>
@@ -50,10 +50,10 @@
     <input type="text"  name="Fname" /><br />
     <p>Lastname:</p>
     <input type="text"  name="Lname" /><br /><br />
-    <input type="checkbox" name="dienst" value="wassen"> Wassen<br />
-    <input type="checkbox" name="dienst" value="knippen"> Knippen<br />
-    <input type="checkbox" name="dienst" value="stijlen"> stijlen<br />
-    <input type="checkbox" name="dienst" value="wassen"> Wassen<br />
+    <input type="checkbox" name="wassen" value="wassen"> Wassen<br />
+    <input type="checkbox" name="knippen" value="knippen"> Knippen<br />
+    <input type="checkbox" name="stijlen" value="stijlen"> stijlen<br />
+    <input type="checkbox" name="kleuren" value="kleuren"> kleuren<br />
     <input type="submit" value="Submit">
 </form>
     <script src="js/datumscript.js"></script>
