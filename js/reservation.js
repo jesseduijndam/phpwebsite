@@ -1,46 +1,23 @@
-timeslot = document.getElementsByClassName("clickable");
-console.log (timeslot.length)
-hello = 0
+const timeslot = document.getElementsByClassName("clickable");
 
-const time = document.querySelector('#time')
-let ammount = time.dataset.ammount
-console.log(ammount)
+const time = document.querySelector('#time');
+const ammount = time.dataset.ammount;
 for (let i = 0; i < timeslot.length; i++) {
-    
-    timeslot[i].onclick = selected
+    timeslot[i].onclick = selected;
 }
-firsttime = false;
+
 function selected(e)
             {
-
-                // console.log(e.target.offsetParent.className);
+                console.log(e.currentTarget)
                 
+                document.querySelectorAll('.selected').forEach(function(selectedElement){
+                    selectedElement.classList.replace("selected", "clickable")
+                });
                 
-                    wasselected = document.getElementsByClassName('selected')
-                    console.log(wasselected);
-                    
-                    for (let i = 0; i < wasselected.length ; i++) {
-                        wasselected[i].classList.replace("selected", "clickable")
-                        
-                    }
-                    // old.classList.replace("selected", "clickable")  
-                 
-                
-            
-                console.log(e.toElement.id);
-                
-                    e.target.offsetParent.classList.replace("clickable", "selected");
-                    extra = e.target.offsetParent.id
-                    for (let i = 0; i < ammount; i++) {
-                        
-                        // h = extra
-                        next = document.getElementById(extra ++)
-                        next.classList.replace("clickable", "selected");                
-                    }
-                firsttime = true
-                old = e.target.offsetParent;
-                document.cookie = "choiceid =" + old.id
-                
-                
-                
+                let extra = e.currentTarget.id
+                for (let i = 0; i < ammount; i++) {
+                    let next = document.getElementById(extra)
+                    next.classList.replace("clickable", "selected");
+                    extra ++;              
+                }
             }
