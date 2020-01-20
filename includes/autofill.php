@@ -23,6 +23,9 @@
                 mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
                 $last = $tijd;
             }
+            $tijd = date('H:i:s', mktime(20,10, 0));
+            $query = "INSERT INTO openslots (starttijd, eindtijd, datum, genomen) VALUES ('$last', '$tijd', '$date', 1)";
+            mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
           }   
           array_push($datums, $date);
         }

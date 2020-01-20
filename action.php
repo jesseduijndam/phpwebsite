@@ -19,13 +19,13 @@
                     `id`, 
                     date_format(starttijd,'%H:%i') AS starttijd, 
                     date_format(eindtijd,'%H:%i') AS eindtijd, 
-                    date_format(datum, '%d-%c-%Y') AS datum 
+                    date_format(datum, '%d-%c-%Y') AS datum,
+                    `genomen` 
                 FROM 
                     `openslots` 
                 WHERE 
                     (`starttijd` BETWEEN '$starttime' AND '$endtime') AND
-                    (`datum` = '$date') AND
-                    (`genomen` = '0')";
+                    (`datum` = '$date')";
     $times = mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
     if($times){
         $timeslots = [];
@@ -34,7 +34,17 @@
         }
     }
     $_SESSION["appointing"]["choices"] = $choiceid; 
-    // var_dump($timeslots);
+    $lastid = $timeslots[count($timeslots) - 1]["id"] + 1;
+    $endid = $lastid + $ammount - 2;
+    $query =   "SELECT `id`, `genomen` FROM `openslots` WHERE `id` BETWEEN $lastid AND $endid ";
+    $hidden = mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
+    if($hidden){
+        $hiddenslots = [];
+        while($row = mysqli_fetch_assoc($hidden)){
+            $hiddenslots[] = $row;
+        }
+    }
+    
     
 ?>
 <!DOCTYPE html>
@@ -47,32 +57,61 @@
     <title>Document</title>
 </head>
 <body>
+    
     <life id="time" data-ammount=<?= $ammount ?>>
-    <table class = "hulp">
-        <?php for ($i=0; $i < count($timeslots); $i++) { ?>
-            <tr>
-                <td>
-                    <table class = "clickable" id = <?= $timeslots[$i]["id"];?>>
-                        <tr>
-                            <td >
-                                <?= $timeslots[$i]["starttijd"];?>
-                            </td>
-                            <td rowspan = "2" >
-                                <?= $timeslots[$i]["datum"];?>
-                            </td>
-                        </tr>
-                        <tr >
-                            <td >
-                                <?= $timeslots[$i]["eindtijd"];?>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-        <?php }?>
-    </table>
-
+    <div class = "no-copy">
+        <table class = "hulp">
+            <?php for ($i=0; $i < count($timeslots); $i++) { ?>
+                <tr>
+                    <td>
+                    <?php if ($timeslots[$i]["genomen"] == 1) {?>
+                        <table class = "notavaileble" id = <?= $timeslots[$i]["id"];?>>
+                    <?php }else{ ?>
+                        <table class = "clickable" id = <?= $timeslots[$i]["id"];?>>
+                    <?php };?> 
+                            <tr>
+                                <td >
+                                    <?= $timeslots[$i]["starttijd"];?>
+                                </td>
+                                <td rowspan = "2" >
+                                    <?= $timeslots[$i]["datum"];?>
+                                </td>
+                            </tr>
+                            <tr >
+                                <td >
+                                    <?= $timeslots[$i]["eindtijd"];?>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            <?php }?>
+            <?php for ($i=0; $i < count($hiddenslots); $i++) { ?>
+                <tr hidden>
+                    <td>
+                    <?php if ($hiddenslots[$i]["genomen"] == 1) {?>
+                        <table class = "notavaileble" id = <?= $hiddenslots[$i]["id"];?>>
+                    <?php }else{ ?>
+                        <table class = "clickable" id = <?= $hiddenslots[$i]["id"];?>>
+                    <?php };?> 
+                        </table>
+                    </td>
+                </tr>
+            <?php }?>
+        </table>
+    </div>
+    <form action = "clientinfo.php" method = "get">
+        <lable for = "firstname"> firstname:</lable><br />
+        <input type = "text" name = "firstname"><br />
+        <lable for = "lastname"> lastname:</lable><br />
+        <input type = "text" name = "lastname"><br />
+        <lable for = "email"> email:</lable><br />
+        <input type = "email" name = "email"><br />
+        <lable for = "telnumber"> mobilenumber:</lable><br />
+        <input type = "tel" name = "telnumber"><br />
+        <input id= "idlist" type = "submit" value = "submit"  />
+    </form>
+    <!-- <button id="idlist" >submit</button> -->
     <script src="js/reservation.js"></script>
 </body>
 </html>
