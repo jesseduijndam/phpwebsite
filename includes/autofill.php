@@ -28,7 +28,10 @@
         }
         $date = date('Y-m-d');
         echo $date;
+        $query = "DELETE FROM `openslots` WHERE `datum` < '$date'";
+        mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
         $query = "UPDATE `requiredone` SET `lastdone`= '$date' WHERE `filename`='autofill'";
         mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
+        
     }   
 ?>

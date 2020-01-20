@@ -1,3 +1,13 @@
+<?php
+$justanarray = array();
+session_start();
+$_SESSION["appointing"] = $justanarray;
+$_SESSION["loggedin"] = $justanarray;
+
+session_write_close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,14 +56,10 @@
         </tbody>
     </table>
     <form action="action.php" method="get" >
-    <p>Firstname:</p>
-    <input type="text"  name="Fname" /><br />
-    <p>Lastname:</p>
-    <input type="text"  name="Lname" /><br /><br />
-    <input type="checkbox" name="wassen" value="wassen"> Wassen<br />
-    <input type="checkbox" name="knippen" value="knippen"> Knippen<br />
-    <input type="checkbox" name="stijlen" value="stijlen"> stijlen<br />
-    <input type="checkbox" name="kleuren" value="kleuren"> kleuren<br />
+    <input type="checkbox" name="wassen"  vlaue= 1> Wassen<br />
+    <input type="checkbox" name="knippen" value= 1> Knippen<br />
+    <input type="checkbox" name="krullen" value= 1> krullen<br />
+    <input type="checkbox" name="kleuren" value= 1> kleuren<br />
     <input type="submit" value="Submit">
 </form>
     <script src="js/datumscript.js"></script>
