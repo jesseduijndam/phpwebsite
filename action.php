@@ -107,8 +107,8 @@
         <input type = "text" name = "lastname"><br />
         <lable for = "email"> email:</lable><br />
         <input type = "email" name = "email"><br />
-        <lable for = "telnumber"> mobilenumber:</lable><br />
-        <input type = "tel" name = "telnumber"><br />
+        <lable for = "telnumber"> phone:</lable><br />
+        <input type = "tel" name = "mobnummer"><br />
         <input id= "idlist" type = "submit" value = "submit"  />
     </form>
     <!-- <button id="idlist" >submit</button> -->
