@@ -57,61 +57,66 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <life id="time" data-ammount=<?= $ammount ?>>
-    <div class = "no-copy">
-        <table class = "hulp">
-            <?php for ($i=0; $i < count($timeslots); $i++) { ?>
-                <tr>
-                    <td>
-                    <?php if ($timeslots[$i]["genomen"] == 1) {?>
-                        <table class = "notavaileble" id = <?= $timeslots[$i]["id"];?>>
-                    <?php }else{ ?>
-                        <table class = "clickable" id = <?= $timeslots[$i]["id"];?>>
-                    <?php };?> 
-                            <tr>
-                                <td >
-                                    <?= $timeslots[$i]["starttijd"];?>
-                                </td>
-                                <td rowspan = "2" >
-                                    <?= $timeslots[$i]["datum"];?>
-                                </td>
-                            </tr>
-                            <tr >
-                                <td >
-                                    <?= $timeslots[$i]["eindtijd"];?>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            <?php }?>
-            <?php for ($i=0; $i < count($hiddenslots); $i++) { ?>
-                <tr hidden>
-                    <td>
-                    <?php if ($hiddenslots[$i]["genomen"] == 1) {?>
-                        <table class = "notavaileble" id = <?= $hiddenslots[$i]["id"];?>>
-                    <?php }else{ ?>
-                        <table class = "clickable" id = <?= $hiddenslots[$i]["id"];?>>
-                    <?php };?> 
-                        </table>
-                    </td>
-                </tr>
-            <?php }?>
-        </table>
+    <div class="centered"> 
+        <div class = "naastelkaar1">  
+            <life id="time" data-ammount=<?= $ammount ?>>
+            <div class = "no-copy">
+                <table class = "hulp">
+                    <?php for ($i=0; $i < count($timeslots); $i++) { ?>
+                        <tr>
+                            <td>
+                            <?php if ($timeslots[$i]["genomen"] == 1) {?>
+                                <table class = "notavaileble" id = <?= $timeslots[$i]["id"];?>>
+                            <?php }else{ ?>
+                                <table class = "clickable" id = <?= $timeslots[$i]["id"];?>>
+                            <?php };?> 
+                                    <tr>
+                                        <td >
+                                            <?= $timeslots[$i]["starttijd"];?>
+                                        </td>
+                                        <td rowspan = "2" >
+                                            <?= $timeslots[$i]["datum"];?>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td >
+                                            <?= $timeslots[$i]["eindtijd"];?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    <?php }?>
+                    <?php for ($i=0; $i < count($hiddenslots); $i++) { ?>
+                        <tr hidden>
+                            <td>
+                            <?php if ($hiddenslots[$i]["genomen"] == 1) {?>
+                                <table class = "notavaileble" id = <?= $hiddenslots[$i]["id"];?>>
+                            <?php }else{ ?>
+                                <table class = "clickable" id = <?= $hiddenslots[$i]["id"];?>>
+                            <?php };?> 
+                                </table>
+                            </td>
+                        </tr>
+                    <?php }?>
+                </table>
+            </div>
+        </div>
+        <div class = "naastelkaar"> 
+            <form action = "clientinfo.php" method = "post">
+                <lable for = "firstname"> firstname:</lable><br />
+                <input type = "text" name = "firstname"><br />
+                <lable for = "lastname"> lastname:</lable><br />
+                <input type = "text" name = "lastname"><br />
+                <lable for = "email"> email:</lable><br />
+                <input type = "email" name = "email"><br />
+                <lable for = "telnumber"> phone:</lable><br />
+                <input type = "tel" name = "mobnummer"><br />
+                <input id= "idlist" type = "submit" value = "submit"  />
+            </form>
+        </div>   
     </div>
-    <form action = "clientinfo.php" method = "get">
-        <lable for = "firstname"> firstname:</lable><br />
-        <input type = "text" name = "firstname"><br />
-        <lable for = "lastname"> lastname:</lable><br />
-        <input type = "text" name = "lastname"><br />
-        <lable for = "email"> email:</lable><br />
-        <input type = "email" name = "email"><br />
-        <lable for = "telnumber"> phone:</lable><br />
-        <input type = "tel" name = "mobnummer"><br />
-        <input id= "idlist" type = "submit" value = "submit"  />
-    </form>
-    <!-- <button id="idlist" >submit</button> -->
+
     <script src="js/reservation.js"></script>
 </body>
 </html>

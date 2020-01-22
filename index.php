@@ -18,51 +18,57 @@ session_write_close();
     <title>Document</title>
 </head>
 <body>
-<life id="time" data-date= <?=date("j/n/Y") ?> data-year= <?= date("Y") ?> data-month= <?= date("n") ?> data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> />
-    <h3 id="monthAndYear"></h3>
-    <table id="col-add">
-        <thead>
-        <tr class="no-copy">
-            <th>Zo</th>
-            <th>Ma</th>
-            <th>Di</th>
-            <th>Wo</th>
-            <th>Do</th>
-            <th>Vr</th>
-            <th>Za</th>
-        </tr>
-        </thead>
+    <div class="centered">
+        <life id="time" data-date= <?=date("j/n/Y") ?> data-year= <?= date("Y") ?> data-month= <?= date("n") ?> data-hours= <?= date("G")?> data-minutes= <?= date('i') ?> /> 
+        <table id="col-add" class="bigger">
+            <thead>
+                <tr class="no-copy">
+                    <th colspan="7" id="monthAndYear"></th>
+                </tr>
+                <tr class="no-copy">
+                    <th>Zo</th>
+                    <th>Ma</th>
+                    <th>Di</th>
+                    <th>Wo</th>
+                    <th>Do</th>
+                    <th>Vr</th>
+                    <th>Za</th>
+                </tr>
+            </thead>
 
-        <tbody id="calendar-body">
-            <!-- the calender comes here -->
-        </tbody>
-    </table>
-        <button id="previous">Previous</button>
-        <button id="next">Next</button>   
-    <br/>
-    <form>
-        <label for="month">Verander Naar: </label>
-            <select name="month" id="month">
-                <!-- the months come here -->
-            </select>
-        <label for="year"></label>
-            <select name="year" id="year" >
-                <!-- the years are here  -->
-            </select>
-    </form>
-    <table>
-        <tbody id = "time-body">
-            <!-- the time picker belongs here -->
-        </tbody>
-    </table>
-    <form action="action.php" method="get" >
-    <input type="checkbox" name="wassen"  vlaue= 1> Wassen<br />
-    <input type="checkbox" name="knippen" value= 1> Knippen<br />
-    <input type="checkbox" name="krullen" value= 1> krullen<br />
-    <input type="checkbox" name="kleuren" value= 1> kleuren<br />
-    <input type="submit" value="Submit">
-</form>
-    <script src="js/datumscript.js"></script>
-    <script src="js/clockscript.js"></script>
+            <tbody id="calendar-body">
+                <!-- the calender comes here -->
+            </tbody>
+        </table>
+            <button id="previous">Previous</button>
+            <button id="next">Next</button>   
+        <br/>
+        <form>
+            <label for="month">Verander Naar: </label>
+                <select name="month" id="month">
+                    <!-- the months come here -->
+                </select>
+            <label for="year"></label>
+                <select name="year" id="year" >
+                    <!-- the years are here  -->
+                </select>
+        </form>
+        <div class="onderelkaar">
+            <table>
+                <tbody id = "time-body">
+                    <!-- the time picker belongs here -->
+                </tbody>
+            </table>
+            <form action="action.php" method="get" >
+                <input type="checkbox" name="wassen"  vlaue= 1> Wassen<br />
+                <input type="checkbox" name="knippen" value= 1> Knippen<br />
+                <input type="checkbox" name="krullen" value= 1> krullen<br />
+                <input type="checkbox" name="kleuren" value= 1> kleuren<br />
+                <input type="submit" value="Submit">
+            </form>
+            <script src="js/datumscript.js"></script>
+            <script src="js/clockscript.js"></script>
+        </div>
+    </div>
 </body>
 </html>
