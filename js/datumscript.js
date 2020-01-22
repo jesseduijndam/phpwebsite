@@ -10,7 +10,7 @@ let hello = 0
 let old = 0
 monthsshort = ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sept", "Okt", "Nov", "Dec"];
 months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
-
+const monthdubble = ["01","02","03","04","05","06","07","08","09"];
 monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
 
@@ -97,7 +97,13 @@ function showCalendar(month, year) {
 
             else {
                 cell = document.createElement("td");
-                cell.id = `${date}/${month+1}/${year}` ;
+                if (month+1 < 10) {
+                    realm = monthdubble[month];
+                }else{realm = month + 1;}
+                if (date < 10) {
+                    reald = monthdubble[date-1];
+                }else{reald = date}
+                cell.id = `${year}-${realm}-${reald}` ;
                 cellText = document.createTextNode(date);
                 if ((date < today.getDate() && year === today.getFullYear() && month === today.getMonth()) || j == 0 || j == 6) {
                     cell.classList.add("notavaileble");

@@ -23,12 +23,18 @@
                 mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
                 $last = $tijd;
             }
+            $tijd = date('H:i:s', mktime(20,10, 0));
+            $query = "INSERT INTO openslots (starttijd, eindtijd, datum, genomen) VALUES ('$last', '$tijd', '$date', 1)";
+            mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
           }   
           array_push($datums, $date);
         }
         $date = date('Y-m-d');
         echo $date;
+        $query = "DELETE FROM `openslots` WHERE `datum` < '$date'";
+        mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
         $query = "UPDATE `requiredone` SET `lastdone`= '$date' WHERE `filename`='autofill'";
         mysqli_query($db, $query) or die('error: '. mysqli_error($db). ' with query' . $query);
+        
     }   
 ?>

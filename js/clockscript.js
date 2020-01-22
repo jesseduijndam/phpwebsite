@@ -83,7 +83,6 @@ function downM() {
 }
 
 function showTime(hours, minutes) {
-
     // body
     tbl = document.getElementById("time-body");
 
